@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title> location véhicule</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="Description" content="Put your description here.">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<style>
+		body{
+			margin:0;
+			padding:0;
+		}
+		header{
+			position: relative;
+			max-width: 1300px;
+			background: #666666;
+			border-radius: 3px;
+			box-shadow: 0 2px 5px rgba(0,0,0.2);
+			height: 70px;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			align-items: center;
+
+		}
+		.logo{
+			padding-top: 10px; 
+			width: 20%;
+
+		}
+		nav{
+			float: right;
+		}
+		.clearfix{
+			clear: both;
+		}
+		nav ul{
+			margin:0;
+		    display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			align-items: center;
+			
+
+		}
+		nav ul li{
+			list-style: none;
+
+		}
+		nav ul li a{
+			display: block;
+			margin:10px 0;
+			padding:10px 20px;
+			text-decoration: none;
+			font-size: 15px;
+			color: white;
+			font-family: poppins;
+		}
+		nav ul li a:hover{
+			color: #F11E1E;
+		}
+		@media (max-width: 768px){
+			.menu-toggle{
+				display: block;
+				width: 40px;
+				height: 40px;
+				margin:10px;
+				float: right;
+				cursor: pointer;
+				text-align: center;
+				font-size: 30px;
+				color: #fff;
+				
+			}
+			.menu-toggle:before{
+				content: '\f0c9';
+				font-family: fontAwesome;
+				line-height: 40px;
+			}
+			.menu-toggle.active:before{
+				content: '\f00d';
+			}
+			nav{
+				display: none;
+			}
+			nav.active{
+				display: block;
+				width: 100%;
+
+			}
+			nav.active ul{
+				display: block;
+				background: #666666;
+				padding-top: 0;
+				margin-bottom: : 0;
+				padding: 0;
+			}
+			nav.active ul li a{
+				font-size: 15px;}
+			.logo{
+				width: 15%;
+				height: 50%;
+				padding-top: 15px;
+				padding-left: 20px;
+			}
+			header{
+				display: block;
+			}
+
+		}
+		h2{
+			text-align: center;
+			font-family: Arial;
+			font-weight: 300;
+			font-size: 30px;
+			padding-top: 30px;
+			
+		}
+		p{
+			font-size: 20px;
+			font-family: Arial;
+			color: #fff;
+			padding-left: 30px;
+			padding-top: 10px;
+			margin-left: 10px;
+			background: #ff4646;
+			width: 80px;
+			height: 30px;
+			border-radius: 10px;
+			border:1px solid #ff4646;
+			
+
+		}
+		.type2{
+			font-size: 20px;
+			font-family: Arial;
+			color: #fff;
+			padding-left: 30px;
+			margin-left: 10px;
+			background: #ff4646;
+			width: 80px;
+			height: 30px;
+			border-radius: 10px;
+			border:1px solid #ff4646;
+			margin-top: 10%;
+
+		}
+		.type3{
+			font-size: 20px;
+			font-family: Arial;
+			color: #fff;
+			padding-left: 20px;
+			margin-left: 10px;
+			background: #ff4646;
+			width: 80px;
+			height: 30px;
+			border-radius: 10px;
+			border:1px solid #ff4646;
+			margin-top: 10%;
+		}
+		.type4{
+			font-size: 14px;
+			font-family: Arial;
+			color: #fff;
+			padding-left: 20px;
+			margin-left: 10px;
+			background: #ff4646;
+			width: 150px;
+			height: 30px;
+			border-radius: 10px;
+			border:1px solid #ff4646;
+			margin-top: 10%;
+		}
+		
+			div.gallery {
+		  margin: 5px;
+		  border: 1px solid #ff4646;
+		  float: left;
+		  width: 250px;
+		  box-shadow: -3px 3px  5px rgb(255 70 70/50%);
+		  padding-bottom: 10px;
+		  margin-left: 25px;
+}
+       
+        h4{
+        	text-align: center;
+        	font-family: Arial;
+        	font-size: 14px;
+        }
+        .info{
+        	display: flex;
+        	flex-direction: row;
+
+        }
+        .pr{
+        	padding-right: 25px;
+        	padding-left: 7px;
+        }
+        .nb{
+        	text-align: center;
+        	color: #ff8585;
+        }
+        .day{
+        	color: #8a8383;
+        }
+        .prix{
+        	padding-top: 30px;
+        	padding-left: 10px;
+        }
+        .reserv{
+			width:120px;
+			height: 50px;
+			margin-left:45%;
+			margin-top: 220px;
+			border:2px solid #F11E1E;
+			background:none;
+			color: #F11E1E;
+			font-size: 15px;
+			cursor: pointer;
+			box-shadow: 5px 5px 4px #ccc;
+
+		}
+		.reserv:hover{
+			background-color: #F11E1E;
+			color: white;
+		}
+       /* <!-------------------------footer---------------------------->*/
+       .footer{
+			background-color: #666666;
+			margin-top: 20%;
+			height: 450px;
+
+		}
+		.logo1{
+			padding-top: 20px;
+			padding-left: 20px;
+			width: 7%;
+			height: 7%;
+		}
+		h3{
+			text-align: center;
+			color: #fff;
+			font-family: Arial;
+		}
+		.app{
+			display: flex;
+			justify-content: center;
+			margin-top: 10px;
+
+		}
+		.app img{
+			margin-left: 60px;
+		}
+		.list{
+			float: left;
+			margin-right: 25px;
+			align-items: center;
+
+			}
+	    .list ul li{
+	        list-style-type: none;
+	        color: #fff;
+	        font-size: 15px;
+	        font-family: Arial;
+	       
+	    }
+	     
+	    .pading{
+	    	padding-top: 10px;}
+
+
+
+
+	     @media screen and (max-width: 1200px){
+	    	.footer{
+	    		height: auto;
+
+	    	}
+	    	.app img{
+			margin-left: 40px;
+			width: 150px;
+			height: 150px;
+		}
+	    	.t-list{
+	    		display: flex;
+	    		flex-direction: row;
+	    		flex-wrap: wrap;
+	    	}
+	    	.list ul li{
+	        list-style-type: none;
+	        color: #fff;
+	        font-size: 13px;
+	        font-family: Arial;
+	       
+
+	       
+	    }
+	        h3{
+	        font-size: 15px;	
+
+		}
+		.list{
+			margin-right: 5px;
+			padding-left: 100px;
+		}
+		.follow{
+			display: flex;
+			flex-direction: row;
+			
+			
+		}
+		.p1{
+			padding-top: 10px;
+			margin-left: 5px;
+		}
+		.left2{
+			padding-left: 70px;
+		}
+		
+		.left1{
+			padding-left:5px;
+		}
+		
+	}
+	@media screen and (max-width: 800px){
+	    	.footer{
+	    		height: auto;
+
+	    	}
+	    	.app img{
+			margin-left: 40px;
+			width: 150px;
+			height: 150px;
+		}
+	    	.t-list{
+	    		display: flex;
+	    		flex-direction: row;
+	    		flex-wrap: wrap;
+	    	}
+	    	.list ul li{
+	        list-style-type: none;
+	        color: #fff;
+	        font-size: 13px;
+	        font-family: Arial;
+	       
+
+	       
+	    }
+	        h3{
+	        font-size: 15px;	
+
+		}
+		.list{
+			margin-right: 5px;
+			padding-left: 80px;
+		}
+		.follow{
+			display: flex;
+			flex-direction: row;
+			
+			
+		}
+		.p1{
+			padding-top: 10px;
+			margin-left: 5px;
+		}
+		.left{
+			padding-left:20px;
+		}
+		.left1{
+			padding-left:5px;
+		}
+		.left2{
+			padding-left:40px;
+		}
+		
+	}
+	    	
+	   
+	    @media screen and (max-width: 600px){
+	    	.footer{
+	    		height: auto;
+
+	    	}
+	    	.app img{
+			margin-left: 20px;
+			width: 100px;
+			height: 100px;
+		}
+	    	.t-list{
+	    		display: flex;
+	    		flex-direction: row;
+	    		flex-wrap: wrap;
+	    	}
+	    	.list ul li{
+	        list-style-type: none;
+	        color: #fff;
+	        font-size: 10px;
+	        font-family: Arial;
+	        width: 100%;
+
+	       
+	    }
+	        h3{
+	        font-size: 12px;	
+
+		}
+		.list{
+			margin-right: 35px;
+			padding-left: 30px;
+		}
+		.follow{
+			display: flex;
+			flex-direction: row;
+			
+			
+		}
+		.p1{
+			padding-top: 10px;
+			margin-left: 5px;
+		}
+		.left{
+			padding-left:20px;
+		}
+		.left1{
+			padding-left:5px;
+		}
+		.left2{
+			padding-left:40px;
+		}
+	    	
+	    }
+		
+	     
+	   
+	    .vehicule{
+	    	display: flex;
+	    	flex-direction: row;
+	    	flex-wrap: wrap;
+	    	align-items: center;
+	    	justify-content: center;
+	    }
+
+		
+		
+
+	</style>
+</head>
+<body>
+	<header>
+		<a href="#"><img src="icon/logo1.png" class="logo" width="7%" height="7%"></a>
+		<div class="menu-toggle"></div>
+		<nav>
+			<ul>
+				<li><a href="home.html" >HOME</a> </li>
+		    	<li><a href="gallery.html"style="color:#F11E1E";>GALLERY</a> </li>
+		        <li><a href="reservation.html">RESERVATION</a></li>
+		        <li><a href="contact.html" >CONTACT</a></li>
+			</ul>
+		</nav>
+		<div class="clearfix" ></div>
+	</header>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		$('.menu-toggle').click(function(){
+    			$('.menu-toggle').toggleClass('active')
+    			$('nav').toggleClass('active')
+
+
+    		})
+    	})
+    </script>
+	<h2>GALLERY</h2>
+	<p>Cars</p>
+	<div class="vehicule">
+	<div class="gallery">
+		<img src="images/c1.png" alt="c1" width="250px" >
+		<h4>DACIA LODGY</h4>
+		<div class="info">
+		<div class="pr"><img src="icon/person.svg" width="20px"> <br /><div class="nb">7</div>
+		</div>
+		<div class="pr"><img src="icon/baggage.svg" width="20px"><br /> <div class="nb" >4</div>
+		</div>
+		<div class="pr"><img src="icon/gearshift.svg" width="20px"><br /> <div class="nb" >not auto</div>
+		</div>
+		<div class="pr"><img src="icon/car-door.svg" width="20px"><br /> <div class="nb" >5</div>
+		</div>
+	</div>
+	<div class="prix">$40,00/<span class="day">day</span></div>
+
+	</div>
+	<div class="gallery">
+		<img src="images/fiat.jpg" alt="c1" width="250px" height="139px">
+		<h4 >Fiat 500</h4>
+		<div class="info">
+		<div class="pr"><img src="icon/person.svg" width="20px" > <br /><div class="nb">4</div>
+		</div>
+		<div class="pr"><img src="icon/baggage.svg" width="20px"><br /> <div class="nb" >0</div>
+		</div>
+		<div class="pr"><img src="icon/gearshift.svg" width="20px"><br /> <div class="nb" >not auto</div>
+		</div>
+		<div class="pr"><img src="icon/car-door.svg" width="20px"><br /> <div class="nb" >3</div>
+		</div>
+	</div>
+	<div class="prix">$30,00/<span class="day">day</span></div>
+
+	</div>
+	<div class="gallery">
+		<img src="images/hynday.jpg" alt="c1" width="250px" height="139px">
+		<h4>Fiat 500</h4>
+		<div class="info">
+		<div class="pr"><img src="icon/person.svg" width="20px" > <br /><div class="nb">5</div>
+		</div>
+		<div class="pr"><img src="icon/baggage.svg" width="20px"><br /> <div class="nb" >0</div>
+		</div>
+		<div class="pr"><img src="icon/gearshift.svg" width="20px"><br /> <div class="nb" >not auto</div>
+		</div>
+		<div class="pr"><img src="icon/car-door.svg" width="20px"><br /> <div class="nb" >5</div>
+		</div>
+	</div>
+	<div class="prix">$35,00/<span class="day">day</span></div>
+
+	</div>
+	<div class="gallery">
+		<img src="images/dacia.jpg" alt="c1" width="250px" height="139px">
+		<h4>DACIA LOGAN</h4>
+		<div class="info">
+		<div class="pr"><img src="icon/person.svg" width="20px" > <br /><div class="nb">5</div>
+		</div>
+		<div class="pr"><img src="icon/baggage.svg" width="20px"><br /> <div class="nb" >3</div>
+		</div>
+		<div class="pr"><img src="icon/gearshift.svg" width="20px"><br /> <div class="nb" >not auto</div>
+		</div>
+		<div class="pr"><img src="icon/car-door.svg" width="20px"><br /> <div class="nb" >5</div>
+		</div>
+	</div>
+	<div class="prix">$35,00/<span class="day">day</span></div>
+
+	</div>
+	</div>
+
+	<p class="type2">Motors</p>
+	<div class="vehicule">
+	<div class="gallery">
+		<img src="images/vespa.jpg" alt="c1" width="250px" height="139px">
+		<h4>VESPA</h4>
+		
+	<div class="prix">$25,00/<span class="day">day</span></div>
+
+	</div>
+	<div class="gallery">
+		<img src="images/agility.jpg" alt="c1" width="250px" height="139px">
+		<h4>AGILITY</h4>
+		
+	<div class="prix">$25,00/<span class="day">day</span></div>
+
+	</div>
+	<div class="gallery">
+		<img src="images/neos.jpg" alt="c1" width="250px" height="139px">
+		<h4>NEOS</h4>
+		
+	<div class="prix">$25,00/<span class="day">day</span></div>
+
+	</div>
+	<div class="gallery">
+		<img src="images/hammer.jpg" alt="c1" width="250px" height="139px">
+		<h4>HAMMER</h4>
+		
+	<div class="prix">$25,00/<span class="day">day</span></div>
+
+	</div>
+</div>
+	<p class="type3">Trucks</p>
+	<div class="vehicule">
+	<div class="gallery">
+		<img src="images/nikola.png" alt="c1" width="250px" height="139px">
+		<h4>NIKOLA</h4>
+		
+	<div class="prix">$40,00/<span class="day">day</span></div>
+
+	</div>
+	 <div class="gallery">
+		<img src="images/cementmexer.jpg" alt="c1" width="250px" height="139px">
+		<h4>CEMENT MIXER</h4>
+		
+	<div class="prix">$100,00/<span class="day">day</span></div>
+
+	</div>
+	 <div class="gallery">
+		<img src="images/tanker.jpg" alt="c1" width="200px" height="139px">
+		<h4>TANKER</h4>
+		
+	<div class="prix">$100,00/<span class="day">day</span></div>
+
+	</div>
+	 <div class="gallery">
+		<img src="images/delivery.png" alt="c1" width="250px" height="140px">
+		<h4>DELIVERY-TRUCK</h4>
+		
+	<div class="prix">$90,00/<span class="day">day</span></div>
+
+	</div>
+</div>
+    <p class="type4">Construction Machine</p>
+	<div class="vehicule">
+	<div class="gallery">
+		<img src="images/traktor.jpg" alt="c1" width="250px" height="139px">
+	
+		
+	<div class="prix">$40,00/<span class="day">day</span></div>
+
+	</div>
+
+	<div class="gallery">
+		<img src="images/TRACTOR1.jpg" alt="c1" width="250px" height="139px">
+		
+		
+	<div class="prix">$50,00/<span class="day">day</span></div>
+
+	</div>
+	<div class="gallery">
+		<img src="images/TRAKTOR2.jpg" alt="c1" width="250px" height="139px">
+		
+		
+	<div class="prix">$40,00/<span class="day">day</span></div>
+
+	</div>
+	<div class="gallery">
+		<img src="images/TRAKTOR3.jpg" alt="c1" width="250px" height="139px">
+		
+		
+	<div class="prix">$30,00/<span class="day">day</span></div>
+
+	</div>
+</div>
+			<a href="reservation.html"><button class="reserv">Reservation</button></a>
+
+
+
+
+
+
+
+	<footer class="footer">
+		
+		<img class="logo1" src="icon/logo1.png" alt="logo" >
+		<h3>DOWNLOAD THE APP :</h3>
+		<div class="app">
+		<a href="#"><img src="icon/Composant 17 – 1.svg" alt:"apple" width="150px" height="150px"></a>
+		<a href="#"><img src="icon/Composant 18 – 1.svg" alt:"apple" width="150px" height="150px"></a>
+	</div>
+	<div class="t-list">
+	
+	<div class="list">
+		<ul>
+			<li>Car Rental SERVICES</u></li>
+			<li class="pading">Vehicle rental</li>
+			<li>Utility rental</li>
+			<li>Our agencies</li>
+		
+		</ul>
+
+	</div>
+	<div class="list">
+		<ul>
+			<li >RÉSERVATION MOBILE</li>
+			<li class="pading">iPhone & iPad</li>
+			<li>Android</li>
+		</ul>
+	</div>
+	<div class="list">
+		<ul>
+			<li >SERVICES DE LOCATION</li>
+			<li class="pading">Informations générales</li>
+		</ul>
+	</div>
+	<div class="list">
+		<ul class="left">
+			<li > Cartes Car Rental</u></li>
+			<li class="pading">Carte Express CR</li>
+			<li>Carte Gold CR</li>
+		</ul>
+	</div>
+	<div class="list">
+		<ul class="left2">
+			<li >Contact </li>
+			<li class="pading">Phone:06-13-00-78-43</li>
+			<li class="pading">Email:CRental.98@gmail.com</li>
+		</ul>
+	</div>
+	<div class="list">
+		<ul class="left1">
+			<li>Follow </li>
+			<div class="follow">
+			<li class="pading"><img  src="icon/facebook.svg" alt="icon1" width="30px"></li>
+			<li class="p1"><img  src="icon/linkedin.svg" alt="icon3" width="30px"></li>
+		    <li class="p1"><img  src="icon/twitter.svg" alt="icon4" width="30px"></li>
+		    <li class="p1"><img src="icon/instagram.svg" alt="icon2" width="30px"></li>
+		</div>
+		</ul>
+	</div>
+	</div>
+	</footer>
+	 
+	 
+	 
+	 
+	 
+	
+</body>
+</html>

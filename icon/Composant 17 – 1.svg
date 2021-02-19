@@ -1,0 +1,19 @@
+<svg id="Composant_17_1" data-name="Composant 17 – 1" xmlns="http://www.w3.org/2000/svg" width="532" height="205" viewBox="0 0 532 205">
+  <g id="Rectangle_12" data-name="Rectangle 12" fill="none" stroke="#f11e1e" stroke-width="6">
+    <rect width="532" height="205" rx="94" stroke="none"/>
+    <rect x="3" y="3" width="526" height="199" rx="91" fill="none"/>
+  </g>
+  <g id="apple" transform="translate(26.998 28.409)">
+    <g id="Groupe_12" data-name="Groupe 12" transform="translate(90.674)">
+      <g id="Groupe_11" data-name="Groupe 11">
+        <path id="Tracé_11" data-name="Tracé 11" d="M274.03,0c-6.927.479-15.023,4.913-19.741,10.687-4.3,5.238-7.844,13.017-6.464,20.578,7.568.235,15.388-4.3,19.92-10.175C271.983,15.624,275.191,7.893,274.03,0Z" transform="translate(-247.522)" fill="#fff"/>
+      </g>
+    </g>
+    <g id="Groupe_14" data-name="Groupe 14" transform="translate(37.336 30.412)">
+      <g id="Groupe_13" data-name="Groupe 13">
+        <path id="Tracé_12" data-name="Tracé 12" d="M144.557,133.02c-6.651-8.34-16-13.18-24.825-13.18-11.653,0-16.582,5.579-24.678,5.579-8.348,0-14.69-5.563-24.768-5.563-9.9,0-20.439,6.05-27.123,16.4-9.4,14.568-7.788,41.959,7.438,65.289,5.449,8.348,12.725,17.735,22.242,17.817,8.47.081,10.857-5.433,22.332-5.49s13.651,5.563,22.1,5.473c9.525-.073,17.2-10.476,22.648-18.824a93.615,93.615,0,0,0,8.389-15.754C126.286,176.375,122.753,145.046,144.557,133.02Z" transform="translate(-37.336 -119.84)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+  <text id="App_Store" data-name="App Store" transform="translate(214 125)" fill="#fff" font-size="55" font-family="ArialMT, Arial"><tspan x="0" y="0">App Store</tspan></text>
+</svg>

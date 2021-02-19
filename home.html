@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>location véhicule</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="Description" content="Put your description here.">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<style>
+		body{
+			margin: 0;
+		}
+		.car{
+			background-image: url(images/porsh.jpg);
+		    background-repeat: no-repeat;
+		    height: 750px;
+		    width: 100%;
+		    background-size: contain;
+
+		}
+		header{
+			position: relative;
+			max-width: 1300px;
+			
+			border-radius: 3px;
+			
+			height: 70px;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			align-items: center;
+
+		}
+		.logo{
+			padding-top: 10px; 
+			width: 20%;
+
+		}
+		nav{
+			float: right;
+		}
+		.clearfix{
+			clear: both;
+		}
+		nav ul{
+			margin:0;
+		    display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			align-items: center;
+			
+
+		}
+		nav ul li{
+			list-style: none;
+
+		}
+		nav ul li a{
+			display: block;
+			margin:10px 0;
+			padding:10px 20px;
+			text-decoration: none;
+			font-size: 15px;
+			color: white;
+			font-family: poppins;
+		}
+		nav ul li a:hover{
+			color: #F11E1E;
+		}
+		@media (max-width: 768px){
+			.menu-toggle{
+				display: block;
+				width: 40px;
+				height: 40px;
+				margin:10px;	
+				float: right;
+				cursor: pointer;
+				text-align: center;
+				font-size: 30px;
+				color: #fff;
+				
+			}
+			.menu-toggle:before{
+				content: '\f0c9';
+				font-family: fontAwesome;
+				line-height: 40px;
+			}
+			.menu-toggle.active:before{
+				content: '\f00d';
+			}
+			nav{
+				display: none;
+			}
+			nav.active{
+				display: block;
+				width: 100%;
+*/
+			}
+			nav.active ul{
+				display: block;
+				padding-top: 0;
+				margin-bottom: : 0;
+				background: #fff;
+				padding: 0;
+				
+			}
+			nav.active ul li{
+				padding-bottom: 0;
+
+			}
+			nav.active ul li a{
+				font-size: 10px;
+				color: black;
+			}
+			.logo{
+				width: 15%;
+				height: 50%;
+				padding-top: 15px;
+				padding-left: 20px;
+			}
+			header{
+				display: block;
+			}
+			h1.active{
+				display: none;
+			}
+			.reserv.active{
+				display: none;
+			}
+			.login.active{
+				display: none;
+			}
+			.signup.active{
+				display: none;
+			}
+			#pr.active{
+				display: none;
+			}
+			
+
+		}
+
+		
+		h1{
+			text-align: center;
+			margin-top: 7%;
+			color: white;
+			font-family: Arial;
+			font-size:60px;
+			text-shadow: 5px 5px 5px rgb(135, 139, 145);
+		}
+
+		
+		#pr{
+			text-align: center;
+			color: white;
+			padding-top: 0%;
+			margin-top: 0;
+			font-size: 20px;
+			font-family: Poppins;
+			
+		}
+		
+		.icons{
+			list-style-type: none;
+			float: right;
+			margin-right: 1%;
+			margin-top: 11%;
+			
+
+		}
+		
+		.icons li img{
+			margin-bottom: 30%;
+		}
+
+		.reserv{
+			width:120px;
+			height: 50px;
+			margin-left: 40px;
+			margin-top: 220px;
+			border:2px solid #F11E1E;
+			background:none;
+			color: white;
+			font-size: 15px;
+			cursor: pointer;
+
+		}
+		.login{
+			width:120px;
+			height: 50px;
+			margin-left: 43px;
+			margin-top: 220px;
+			border:2px solid #F11E1E;
+			background:none;
+			color: white;
+			font-size: 15px;
+			cursor: pointer;
+
+
+		}
+		.signup{
+			width:120px;
+			height: 50px;
+			margin-left: 46px;
+			margin-top: 220px;
+			border:2px solid #F11E1E;
+			background:none;
+			color: white;
+			font-size: 15px;
+			cursor: pointer;
+		}
+		.login:hover{
+			background-color: #F11E1E;
+		}
+		.reserv:hover{
+			background-color: #F11E1E;
+		}
+		.signup:hover{
+			background-color: #F11E1E;
+		}
+		.tous-info{
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-around;
+			margin-bottom: 7%;
+			border-bottom:2px solid #707070;
+			padding-bottom: 7%;
+		}
+		.info{
+			float: left;
+			margin-right: 5%;
+			margin-left: 5%;
+			
+		}
+		.icon{
+			padding-left: 38%;
+			}
+		h4{
+			text-align: center;
+			font-family: Poppins;
+		}
+		.pf{
+			text-align: center;
+			color: #C0C0C0;
+			font-family: Poppins;
+			font-size: 10px;
+		}
+		@media screen and (max-width: 1000px){
+			.car{
+				height: 550px;
+			}
+			h1{
+				font-size: 60px;
+				margin-top: 6%;
+			}
+			#pr{
+				font-size: 16px;
+			}
+			.icons img{
+				width: 16px;
+			}
+			.reserv{
+				margin-top: 130px;
+				margin-left: 20px;
+				width: 100px;
+				height: 40px;
+				font-size: 10px;
+			}
+			.login{
+				margin-top: 130px;
+				margin-left: 23px;
+				width: 100px;
+				height: 40px;
+				font-size: 10px;
+
+			}
+			.signup{
+				margin-top: 130px;
+				margin-left: 26px;
+				width: 100px;
+				height: 40px;
+				font-size: 10px;
+			}
+
+		}
+		@media screen and (max-width: 800px){
+			.car{
+				height: 500px;
+			}
+			h1{
+				font-size: 40px;
+				margin-top: 4%;
+			}
+			#pr{
+				font-size: 20px;
+			}
+			.icons img{
+				width: 12px;
+			}
+			.reserv{
+				margin-top: 70px;
+				margin-left: 20px;
+				width: 100px;
+				height: 40px;
+				font-size: 10px;
+			}
+			.login{
+				margin-top: 70px;
+				margin-left: 23px;
+				width: 100px;
+				height: 40px;
+				font-size: 10px;
+
+			}
+			.signup{
+				margin-top: 70px;
+				margin-left: 26px;
+				width: 100px;
+				height: 40px;
+				font-size: 10px;
+			}
+
+		}
+		@media screen and (max-width: 700px){
+			.car{
+				height: 400px;
+			}
+			h1{
+				font-size: 40px;
+				margin-top: 4%;
+			}
+			#pr{
+				font-size: 20px;
+			}
+			.icons img{
+				width: 10px;
+				margin-bottom: 30px;
+
+			}
+			.reserv{
+				margin-top: 60px;
+				margin-left: 20px;
+				width: 100px;
+				height: 40px;
+				font-size: 10px;
+			}
+			.login{
+				margin-top:60px;
+				margin-left: 23px;
+				width: 100px;
+				height: 40px;
+				font-size: 10px;
+
+			}
+			.signup{
+				margin-top: 60px;
+				margin-left: 26px;
+				width: 100px;
+				height: 40px;
+				font-size: 10px;
+			}
+
+		}
+		@media screen and (max-width: 600px){
+			.car{
+				height: 300px;
+			}
+			.info{
+				margin-bottom: 20px;
+			}
+			h1{
+				font-size: 20px;
+				margin-top: 2%;
+			}
+			#pr{
+				font-size: 8px;
+			}
+			.icons img{
+				width: 10px;
+
+			}
+			.reserv{
+				margin-top: 80px;
+				margin-left: 20px;
+				width: 70px;
+				height: 30px;
+				font-size: 10px;
+			}
+			.login{
+				margin-top: 80px;
+				margin-left: 23px;
+				width: 70px;
+				height: 30px;
+				font-size: 10px;
+			}
+			.signup{
+				margin-top: 80px;
+				margin-left: 26px;
+				width: 70px;
+				height: 30px;
+				font-size: 10px;
+			}
+			.tous-info{
+				margin-top: 0px;
+			}}
+
+			@media screen and (max-width: 400px){
+			.car{
+				height: 300px;
+			}
+			.info{
+				margin-bottom: 20px;
+			}
+			h1{
+				font-size: 20px;
+				margin-top: 2%;
+			}
+			#pr{
+				font-size: 5px;
+			}
+			.icons img{
+				width: 10px;
+
+			}
+			.reserv{
+				margin-top: 30px;
+				margin-left: 20px;
+				width: 70px;
+				height: 30px;
+				font-size: 10px;
+			}
+			.login{
+				margin-top: 30px;
+				margin-left: 23px;
+				width: 70px;
+				height: 30px;
+				font-size: 10px;
+			}
+			.signup{
+				margin-top: 30px;
+				margin-left: 26px;
+				width: 70px;
+				height: 30px;
+				font-size: 10px;
+			}
+			.tous-info{
+				margin-top: 0px;
+			}}
+            .TB{
+            	display: flex;
+            	justify-content: space-around;
+            }
+		
+		.TB ul {
+			display: flex;
+			flex-direction: row;
+		
+		}
+		.TB ul li{
+			display: flex;
+			margin-right: 5%;
+			margin-left: 4%;
+		}
+		h2{
+			text-align: center;
+			font-family: Poppins;
+			padding-top: 5px;
+			padding-bottom: 20px;
+			color: #F11E1E;
+		}
+		.footer{
+			background-color: #666666;
+			margin-top: 15%;
+			height: 450px;
+
+		}
+		.logo1{
+			padding-top: 20px;
+			padding-left: 20px;
+			width: 7%;
+			height: 7%;
+		}
+		h3{
+			text-align: center;
+			color: #fff;
+			font-family: Arial;
+		}
+		.app{
+			display: flex;
+			justify-content: center;
+			margin-top: 10px;
+
+		}
+		.app img{
+			margin-left: 60px;
+		}
+		.list{
+			float: left;
+			margin-right: 25px;
+			align-items: center;
+
+			}
+	    .list ul li{
+	        list-style-type: none;
+	        color: #fff;
+	        font-size: 15px;
+	        font-family: Arial;
+	       
+	    }
+	     
+	    .pading{
+	    	padding-top: 10px;}
+
+
+
+
+	     @media screen and (max-width: 1200px){
+	    	.footer{
+	    		height: auto;
+
+	    	}
+	    	.app img{
+			margin-left: 40px;
+			width: 150px;
+			height: 150px;
+		}
+	    	.t-list{
+	    		display: flex;
+	    		flex-direction: row;
+	    		flex-wrap: wrap;
+	    	}
+	    	.list ul li{
+	        list-style-type: none;
+	        color: #fff;
+	        font-size: 13px;
+	        font-family: Arial;
+	       
+
+	       
+	    }
+	        h3{
+	        font-size: 15px;	
+
+		}
+		.list{
+			margin-right: 5px;
+			padding-left: 100px;
+		}
+		.follow{
+			display: flex;
+			flex-direction: row;
+			
+			
+		}
+		.p1{
+			padding-top: 10px;
+			margin-left: 5px;
+		}
+		.left2{
+			padding-left: 70px;
+		}
+		
+		.left1{
+			padding-left:5px;
+		}
+		
+	}
+	@media screen and (max-width: 800px){
+	    	.footer{
+	    		height: auto;
+
+	    	}
+	    	.app img{
+			margin-left: 40px;
+			width: 150px;
+			height: 150px;
+		}
+	    	.t-list{
+	    		display: flex;
+	    		flex-direction: row;
+	    		flex-wrap: wrap;
+	    	}
+	    	.list ul li{
+	        list-style-type: none;
+	        color: #fff;
+	        font-size: 13px;
+	        font-family: Arial;
+	       
+
+	       
+	    }
+	        h3{
+	        font-size: 15px;	
+
+		}
+		.list{
+			margin-right: 5px;
+			padding-left: 80px;
+		}
+		.follow{
+			display: flex;
+			flex-direction: row;
+			
+			
+		}
+		.p1{
+			padding-top: 10px;
+			margin-left: 5px;
+		}
+		.left{
+			padding-left:20px;
+		}
+		.left1{
+			padding-left:5px;
+		}
+		.left2{
+			padding-left:40px;
+		}
+		
+		
+	}
+	    	
+	   
+	    @media screen and (max-width: 600px){
+	    	.footer{
+	    		height: auto;
+
+	    	}
+	    	.app img{
+			margin-left: 20px;
+			width: 100px;
+			height: 100px;
+		}
+	    	.t-list{
+	    		display: flex;
+	    		flex-direction: row;
+	    		flex-wrap: wrap;
+	    	}
+	    	.list ul li{
+	        list-style-type: none;
+	        color: #fff;
+	        font-size: 10px;
+	        font-family: Arial;
+	        width: 100%;
+
+	       
+	    }
+	        h3{
+	        font-size: 12px;	
+
+		}
+		.list{
+			margin-right: 35px;
+			padding-left: 30px;
+		}
+		.follow{
+			display: flex;
+			flex-direction: row;
+			
+			
+		}
+		.p1{
+			padding-top: 10px;
+			margin-left: 5px;
+		}
+		.left{
+			padding-left:20px;
+		}
+		.left1{
+			padding-left:5px;
+		}
+		.left2{
+			padding-left:40px;
+		}
+	    	
+	    }
+
+
+
+	</style>
+</head>
+<body>
+	<div class="car">
+		<header>
+		<a href="#"><img src="icon/logo1.png" class="logo" width="7%" height="7%"></a>
+		<div class="menu-toggle"></div>
+		<nav>
+			<ul>
+				<li><a href="home.html" style="color:#F11E1E";>HOME</a> </li>
+		    	<li><a href="gallery.html">GALLERY</a> </li>
+		        <li><a href="reservation.html" >RESERVATION</a></li>
+		        <li><a href="contact.html">CONTACT</a></li>
+			</ul>
+		</nav>
+		<div class="clearfix" ></div>
+	</header>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		$('.menu-toggle').click(function(){
+    			$('.menu-toggle').toggleClass('active')   
+    			$('nav').toggleClass('active')
+    			$('h1').toggleClass('active')
+    			$('.reserv').toggleClass('active')
+    			$('.login').toggleClass('active')
+    			$('.signup').toggleClass('active')
+    			$('#pr').toggleClass('active')
+
+
+
+    		})
+    	})
+    </script>
+		<h1>VEHICLE RENTAL</h1>
+		<p id="pr">Find the best vehicle rental deals</p>
+		<ul class="icons">
+			<li><img  src="icon/facebook.svg" alt="icon1" width="30px"></li>
+			<li><img src="icon/instagram.svg" alt="icon2" width="30px"></li>
+			<li><img  src="icon/linkedin.svg" alt="icon3" width="30px"></li>
+		    <li><img  src="icon/twitter.svg" alt="icon4" width="30px"></li>
+
+		</ul>
+		<a href="reservation.html"><button class="reserv">Reservation</button></a>
+		<button class="login">Log in</button>
+		<button class="signup">Sign Up</button>
+		
+	</div>
+	<div class="tous-info">
+	<div class="info">
+		<img class="icon" src="icon/Groupe 6.png" alt="e" width="25%">
+		<h4>NO CANCELLATION FEES</h4>
+		<p class="pf">You can book your car online<br />
+        in peace there are no cancellation fees.</p>
+	</div>	
+	<div class="info">
+		<img class="icon" src="icon/Groupe 7.png" alt="e" width="20%">
+		<h4>Insurance / Mileage</h4>
+		<p class="pf">Comprehensive insurance and unlimited mileage are<br />
+        included in all rental rates.</p>
+	</div>	
+	<div class="info">
+		<img class="icon" src="icon/Groupe 8.png" alt="e" width="20%">
+		<h4>Decreasing prices</h4>
+		<p class="pf">Depending on the number of days of reservation on<br />
+        daily rate for the rental of your car drops.</p>
+	</div>
+	</div>
+	<h2>Trusted Brands</h2>
+	<div class="TB">
+		<ul >
+			<li><img  src="icon/c1.svg" alt="C1" width="80%"></li>
+			<li><img src="icon/c2.svg" alt="C2" width="80%"></li>
+			<li><img  src="icon/c3.svg" alt="C3" width="80%"></li>
+			<li><img  src="icon/c4.svg" alt="C4" width="80%"></li>
+			<li><img  src="icon/c5.svg" alt="C5" width="80%"></li>
+
+		</ul>
+	</div>
+	<footer class="footer">
+		
+		<img class="logo1" src="icon/logo1.png" alt="logo" >
+		<h3>DOWNLOAD THE APP :</h3>
+		<div class="app">
+		<a href="#"><img src="icon/Composant 17 – 1.svg" alt:"apple" width="150px" height="150px"></a>
+		<a href="#"><img src="icon/Composant 18 – 1.svg" alt:"apple" width="150px" height="150px"></a>
+	</div>
+	<div class="t-list">
+	
+	<div class="list">
+		<ul>
+			<li>Car Rental SERVICES</u></li>
+			<li class="pading">Vehicle rental</li>
+			<li>Utility rental</li>
+			<li>Our agencies</li>
+		
+		</ul>
+
+	</div>
+	<div class="list">
+		<ul>
+			<li >RÉSERVATION MOBILE</li>
+			<li class="pading">iPhone & iPad</li>
+			<li>Android</li>
+		</ul>
+	</div>
+	<div class="list">
+		<ul>
+			<li >SERVICES DE LOCATION</li>
+			<li class="pading">Informations générales</li>
+		</ul>
+	</div>
+	<div class="list">
+		<ul class="left">
+			<li > Cartes Car Rental</u></li>
+			<li class="pading">Carte Express CR</li>
+			<li>Carte Gold CR</li>
+		</ul>
+	</div>
+	<div class="list">
+		<ul class="left2">
+			<li >Contact </li>
+			<li class="pading">Phone:06-13-00-78-43</li>
+			<li class="pading">Email:CRental.98@gmail.com</li>
+		</ul>
+	</div>
+	<div class="list">
+		<ul class="left1">
+			<li>Follow </li>
+			<div class="follow">
+			<li class="pading"><img  src="icon/facebook.svg" alt="icon1" width="30px"></li>
+			<li class="p1"><img  src="icon/linkedin.svg" alt="icon3" width="30px"></li>
+		    <li class="p1"><img  src="icon/twitter.svg" alt="icon4" width="30px"></li>
+		    <li class="p1"><img src="icon/instagram.svg" alt="icon2" width="30px"></li>
+		</div>
+		</ul>
+	</div>
+	</div>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title> location véhicule</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="Description" content="Put your description here.">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<style>
+		body{
+			margin: 0;
+			padding: 0;
+		}
+		header{
+			position: relative;
+			max-width: 1300px;
+			background: #666666;
+			border-radius: 3px;
+			box-shadow: 0 2px 5px rgba(0,0,0.2);
+			height: 70px;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			align-items: center;
+
+		}
+		.logo{
+			padding-top: 10px; 
+			width: 20%;
+
+		}
+		nav{
+			float: right;
+		}
+		.clearfix{
+			clear: both;
+		}
+		nav ul{
+			margin:0;
+		    display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			align-items: center;
+			
+
+		}
+		nav ul li{
+			list-style: none;
+
+		}
+		nav ul li a{
+			display: block;
+			margin:10px 0;
+			padding:10px 20px;
+			text-decoration: none;
+			font-size: 15px;
+			color: white;
+			font-family: poppins;
+		}
+		nav ul li a:hover{
+			color: #F11E1E;
+		}
+		@media (max-width: 768px){
+			.menu-toggle{
+				display: block;
+				width: 40px;
+				height: 40px;
+				margin:10px;	
+				float: right;
+				cursor: pointer;
+				text-align: center;
+				font-size: 30px;
+				color: #fff;
+				
+			}
+			.menu-toggle:before{
+				content: '\f0c9';
+				font-family: fontAwesome;
+				line-height: 40px;
+			}
+			.menu-toggle.active:before{
+				content: '\f00d';
+			}
+			nav{
+				display: none;
+			}
+			nav.active{
+				display: block;
+				width: 100%;
+
+			}
+			nav.active ul{
+				display: block;
+				background: #666666;
+				padding-top: 0;
+				margin-bottom: 0;
+				padding: 0;
+			}
+			nav.active ul li a{
+				font-size: 15px;}
+			.logo{
+				width: 15%;
+				height: 50%;
+				padding-top: 15px;
+				padding-left: 20px;
+			}
+			header{
+				display: block;
+			}
+
+		}
+
+
+		h2{
+			text-align: center;
+			font-family: Arial;
+			font-weight: 300;
+			font-size: 30px;
+			padding-top: 30px;
+		}
+		
+		.image{
+			border-radius: 10%;
+			border:3px solid #ff4646;
+            margin-left: 50px;   
+            margin-top: 20px;
+			width: 200px;
+			height: 200px;		
+			box-shadow: 3px 3px 5px rgb(0 0 0/50%);
+			transition:  width 3s;
+			cursor: pointer;
+
+		}
+		.image:hover{
+			width:150px;
+		}
+		.flex{
+			display: flex;
+			position: fixed;
+			flex-direction: column;
+			margin-left: 50%;
+			margin-top: 2%;
+			background: white;
+			border:1px solid #ccc;
+			width: 40%;
+			height: 400px;
+			align-items: center;
+			justify-content: center;
+			box-shadow: -3px 3px 4px rgb(255 70 70/50%);
+		}
+		.forme1{
+			padding-bottom: 5%;
+			padding-top: 0%;
+		}
+		.forme2{
+			padding-bottom: 10%;
+		}
+		.input{
+			background: #ff4646;
+			border-radius: 15px;
+			height:  50px;
+			width: 100%;
+			color: white;
+			font-family: Arial;	
+			padding-top: 24px;
+			padding-left: 20px;
+		}
+		
+
+		.input2{
+			background: #ff4646;
+			border-radius: 15px;
+			width: 50%;
+			height: 50px;
+			padding-top: 24px;	
+			color: white;
+			font-family: Arial;
+			margin-bottom: 3%;
+		
+
+
+		}
+		.container{
+			display: flex;
+			flex-direction: row;
+		}
+		.t-types{
+			display: flex;
+			flex-direction: column;
+			margin-top: 5%;
+		}
+		.btn{
+			margin-top: 4%;
+			width: 170px;
+			height: 60px;
+			border:2px solid #ff4646;
+			background: none;
+			font-size: 15px;
+			cursor: pointer;
+		}
+		.btn:hover{
+			background: #ff4646;
+			color: white;
+		}
+		.flex .reserv{
+			font-family: Arial;
+			font-size: 20px;
+			color: black;
+		}
+		.jour{
+			border:2px solid #ff4646;
+			margin-bottom: 4px;
+			margin-top: 5px;
+		}
+		label{
+			font-family: arial;
+		}
+		@media (max-width: 1200px){
+			.image{
+				width: 180px;
+				height: 180px
+			}
+			.image:hover{
+				width: 150px;
+			}
+			.btn{
+				height: 30px;
+				font-size: 10px;
+				width: 120px;
+			}
+			.flex{
+				margin-top: 2%;
+				height: 300px;
+			}
+			label{
+				font-size: 10px;
+			}
+			.input{
+				height: 40px;
+				padding-top: 16px;
+				width: 95%;
+				padding-left: 20px;
+			}
+			.input2{
+				height: 30px;
+				padding-top: 10px;
+				width: 90%;
+			}
+		}
+		@media (max-width: 1100px){
+			.image{
+				width: 158px;
+				height: 180px
+			}
+			.image:hover{
+				width: 150px;
+			}
+			.btn{
+				height: 30px;
+				font-size: 10px;
+				width: 120px;
+			}
+			.flex{
+				margin-top: 2%;
+				height: 300px;
+			}
+			label{
+				font-size: 10px;
+			}
+			.input{
+				height: 40px;
+				padding-top: 16px;
+				width: 90%;
+			}
+			.input2{
+				height: 30px;
+				padding-top: 10px;
+				width: 90%;
+			}
+		}
+		@media (max-width: 900px){
+			.image{
+				width: 150px;
+				height: 150px
+			}
+			.image:hover{
+				width: 100px;
+			}
+			.btn{
+				height: 30px;
+				font-size: 10px;
+				width: 120px;
+			}
+			.flex{
+				margin-top: 4%;
+				height: 300px;
+			}
+			label{
+				font-size: 10px;
+			}
+			.input{
+				height: 40px;
+				padding-top: 16px;
+				width: 90%;
+			}
+			.input2{
+				height: 30px;
+				padding-top: 10px;
+				width: 90%;
+			}
+		}
+
+
+
+
+
+		@media (max-width: 600px){
+			.image{
+				width: 150px;
+				height: 150px
+			}
+			.image:hover{
+				width: 100px;
+			}
+			.btn{
+				height: 30px;
+				font-size: 10px;
+				width: 120px;
+			}
+			.flex{
+				margin-top: 8%;
+				height: 300px;
+			}
+			label{
+				font-size: 10px;
+			}
+			.input{
+				height: 40px;
+				padding-top: 16px;
+				width: 90%;
+			}
+			.input2{
+				height: 30px;
+				padding-top: 10px;
+				width: 90%;
+			}
+		}
+
+
+
+		.footer{
+			background-color: #666666;
+			margin-top: 15%;
+			height: 450px;
+
+
+		}
+		.logo1{
+			padding-top: 20px;
+			padding-left: 20px;
+			width: 7%;
+			height: 7%;
+		}
+		h3{
+			text-align: center;
+			color: #fff;
+			font-family: Arial;
+		}
+		.app{
+			display: flex;
+			justify-content: center;
+			margin-top: 10px;
+
+		}
+		.app img{
+			margin-left: 60px;
+		}
+		.list{
+			float: left;
+			margin-right: 25px;
+			align-items: center;
+
+			}
+	    .list ul li{
+	        list-style-type: none;
+	        color: #fff;
+	        font-size: 15px;
+	        font-family: Arial;
+	       
+	    }
+	     
+	    .pading{
+	    	padding-top: 10px;}
+
+
+
+
+	     @media screen and (max-width: 1200px){
+	    	.footer{
+	    		height: auto;
+
+	    	}
+	    	.app img{
+			margin-left: 40px;
+			width: 150px;
+			height: 150px;
+		}
+	    	.t-list{
+	    		display: flex;
+	    		flex-direction: row;
+	    		flex-wrap: wrap;
+	    	}
+	    	.list ul li{
+	        list-style-type: none;
+	        color: #fff;
+	        font-size: 13px;
+	        font-family: Arial;
+	       
+
+	       
+	    }
+	        h3{
+	        font-size: 15px;	
+
+		}
+		.list{
+			margin-right: 5px;
+			padding-left: 100px;
+		}
+		.follow{
+			display: flex;
+			flex-direction: row;
+			
+			
+		}
+		.p1{
+			padding-top: 10px;
+			margin-left: 5px;
+		}
+		.left2{
+			padding-left: 70px;
+		}
+		
+		.left1{
+			padding-left:5px;
+		}
+		
+	}
+	@media screen and (max-width: 800px){
+	    	.footer{
+	    		height: auto;
+
+	    	}
+	    	.app img{
+			margin-left: 40px;
+			width: 150px;
+			height: 150px;
+		}
+	    	.t-list{
+	    		display: flex;
+	    		flex-direction: row;
+	    		flex-wrap: wrap;
+	    	}
+	    	.list ul li{
+	        list-style-type: none;
+	        color: #fff;
+	        font-size: 13px;
+	        font-family: Arial;
+	       
+
+	       
+	    }
+	        h3{
+	        font-size: 15px;	
+
+		}
+		.list{
+			margin-right: 5px;
+			padding-left: 80px;
+		}
+		.follow{
+			display: flex;
+			flex-direction: row;
+			
+			
+		}
+		.p1{
+			padding-top: 10px;
+			margin-left: 5px;
+		}
+		.left{
+			padding-left:20px;
+		}
+		.left1{
+			padding-left:5px;
+		}
+		.left2{
+			padding-left:40px;
+		}
+		
+		
+	}
+	    	
+	   
+	    @media screen and (max-width: 600px){
+	    	.footer{
+	    		height: auto;
+
+	    	}
+	    	.app img{
+			margin-left: 20px;
+			width: 100px;
+			height: 100px;
+		}
+	    	.t-list{
+	    		display: flex;
+	    		flex-direction: row;
+	    		flex-wrap: wrap;
+	    	}
+	    	.list ul li{
+	        list-style-type: none;
+	        color: #fff;
+	        font-size: 10px;
+	        font-family: Arial;
+	        width: 100%;
+
+	       
+	    }
+	        h3{
+	        font-size: 12px;	
+
+		}
+		.list{
+			margin-right: 35px;
+			padding-left: 30px;
+		}
+		.follow{
+			display: flex;
+			flex-direction: row;
+			
+			
+		}
+		.p1{
+			padding-top: 10px;
+			margin-left: 5px;
+		}
+		.left{
+			padding-left:20px;
+		}
+		.left1{
+			padding-left:5px;
+		}
+		.left2{
+			padding-left:40px;
+		}
+	    	
+	    }
+		
+
+		
+		
+
+
+
+
+	</style>
+</head>
+<script type="text/javascript">
+	
+	var  btv=0;
+	var carb=0;
+	var prv=0;
+	function Reservation_moto() {
+		document.getElementById("Hybride").style="display:none";
+		document.getElementById("hybr").style="display:none";
+		document.getElementById("Diesel").style="display:none";
+		document.getElementById("diesel").style="display:none";
+		document.getElementById("auto_manu").style="display:none";
+		document.getElementById("Electrique").style="display:visible";
+		document.getElementById("elec").style="display:visible";
+		document.getElementById("Essence").style="display:visible";
+	 	document.getElementById("essence").style="display:visible";
+		prv=10;
+
+
+	}
+
+	function Reservation_citadine(){
+		document.getElementById("Automatique").style="display:none";
+		document.getElementById("auto").style="display:none";
+		document.getElementById("auto_manu").style="display:visible";
+		document.getElementById("Hybride").style="display:visible";
+		document.getElementById("hybr").style="display:visible";
+		document.getElementById("Diesel").style="display:visible";
+		document.getElementById("diesel").style="display:visible";
+		document.getElementById("Electrique").style="display:visible";
+		document.getElementById("elec").style="display:visible";
+		document.getElementById("Essence").style="display:visible";
+	 	document.getElementById("essence").style="display:visible";
+
+		prv=12;
+
+	}
+	function Reservation_compact(){
+        document.getElementById("Hybride").style="display:visible";
+	 	document.getElementById("hybr").style="display:visible";
+		document.getElementById("Essence").style="display:visible";
+	 	document.getElementById("essence").style="display:visible";
+	 	document.getElementById("Diesel").style="display:visible";
+	 	document.getElementById("diesel").style="display:visible";
+		document.getElementById("Electrique").style="display:none";
+		document.getElementById("elec").style="display:none";
+		document.getElementById("Automatique").style="display:none";
+		document.getElementById("auto").style="display:none";
+		document.getElementById("auto_manu").style="display:visible";
+
+		
+		prv=14;
+
+	}
+	function Reservation_berline(){
+		 document.getElementById("Hybride").style="display:visible";
+	 	document.getElementById("hybr").style="display:visible";
+		document.getElementById("Essence").style="display:visible";
+	 	document.getElementById("essence").style="display:visible";
+	 	document.getElementById("Diesel").style="display:visible";
+	 	document.getElementById("diesel").style="display:visible";
+		document.getElementById("Electrique").style="display:none";
+		document.getElementById("elec").style="display:none";
+		document.getElementById("Manuelle").style="display:none";
+		 document.getElementById("manuelle").style="display:none";
+		 document.getElementById("auto_manu").style="display:visible";
+		 document.getElementById("Automatique").style="display:visible";
+		document.getElementById("auto").style="display:visible";
+
+		 prv=20;
+
+	}
+	function Reservation_utilitaire(){
+		document.getElementById("Electrique").style="display:none";
+		document.getElementById("elec").style="display:none";
+		document.getElementById("Hybride").style="display:none";
+		document.getElementById("hybr").style="display:none";
+		document.getElementById("Essence").style="display:none";
+		document.getElementById("essence").style="display:none";
+		document.getElementById("Automatique").style="display:none";
+		document.getElementById("auto").style="display:none";
+		document.getElementById("auto_manu").style="display:visible";
+		document.getElementById("Diesel").style="display:visible";
+	 	document.getElementById("diesel").style="display:visible";
+	 	document.getElementById("Manuelle").style="display:visible";
+		 document.getElementById("manuelle").style="display:visible";
+
+		prv=16;
+
+	}
+	function Reservation_engin_de_chantier(){
+		document.getElementById("Electrique").style="display:none";
+		document.getElementById("elec").style="display:none";
+		document.getElementById("Hybride").style="display:none";
+		document.getElementById("hybr").style="display:none";
+		document.getElementById("Automatique").style="display:none";
+		document.getElementById("auto").style="display:none";
+		document.getElementById("auto_manu").style="display:visible";
+		document.getElementById("Diesel").style="display:visible";
+	 	document.getElementById("diesel").style="display:visible";
+	 	document.getElementById("Manuelle").style="display:visible";
+		document.getElementById("manuelle").style="display:visible";
+		document.getElementById("Essence").style="display:visible";
+	 	document.getElementById("essence").style="display:visible";
+
+		prv=900;
+
+	}
+	function Reservation_camion(){
+		document.getElementById("Electrique").style="display:none";
+		document.getElementById("elec").style="display:none";
+		document.getElementById("Hybride").style="display:none";
+		document.getElementById("hybr").style="display:none";
+		document.getElementById("Essence").style="display:none";
+		document.getElementById("essence").style="display:none";
+		document.getElementById("Manuelle").style="display:none";
+		document.getElementById("manuelle").style="display:none";
+		document.getElementById("auto_manu").style="display:visible";
+		document.getElementById("Diesel").style="display:visible";
+	 	document.getElementById("diesel").style="display:visible";
+	 	document.getElementById("Automatique").style="display:visible";
+		document.getElementById("auto").style="display:visible";
+
+		prv=250;
+	}
+
+
+function calcul() {
+if(prv==0){
+	alert('selectionner un type');
+}
+
+	var dr=document.getElementById('dr').value;
+	var i=0;
+	var tabC=[5,9,14,21];
+	var tabv=[1,19];
+	var tabp=[10,12,14,20,16,900,250];
+	var type_carburant = document.getElementsByName('carburant');
+	var type_boite_vitesse = document.getElementsByName('boite_vitesse');
+	var carburant_value=-1;
+	var boite_vitesse_value=-1;
+	var prixv_value;
+	for(i = 0; i < type_carburant.length; i++){
+    	if(type_carburant[i].checked){
+        	carburant_value = i;
+    }
+}
+		if(carburant_value!=-1)
+     carb=tabC[carburant_value];
+    for(i = 0; i < type_boite_vitesse.length; i++){
+    	if(type_boite_vitesse[i].checked){
+        	boite_vitesse_value = i;
+    }
+}
+	if(boite_vitesse_value!=-1)
+    btv=tabv[boite_vitesse_value];
+    var prixtotale= (prv +carb*100/prv  + btv*100/prv)*dr;
+    document.getElementById("prix").innerHTML=prixtotale;
+
+
+}
+
+
+
+
+</script>
+<body>
+	<header>
+		<a href="#"><img src="icon/logo1.png" class="logo" width="7%" height="7%"></a>
+		<div class="menu-toggle"></div>
+		<nav>
+			<ul>
+				<li><a href="home.html" >HOME</a> </li>
+		    	<li><a href="gallery.html">GALLERY</a> </li>
+		        <li><a href="reservation.html" style="color:#F11E1E";>RESERVATION</a></li>
+		        <li><a href="contact.html">CONTACT</a></li>
+			</ul>
+		</nav>
+		<div class="clearfix" ></div>
+	</header>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		$('.menu-toggle').click(function(){
+    			$('.menu-toggle').toggleClass('active')
+    			$('nav').toggleClass('active')
+
+
+    		})
+    	})
+    </script>
+			<h2>Reservation</h2>
+		<div class="container">
+		<div class="t-types">
+		
+			<img class="image" onclick="Reservation_moto()" src="images/grido.jpg" alt="type1">
+		
+			<img class="image" onclick="Reservation_citadine()" src="images/citadine.jpg" alt="type1">
+		
+			<img class="image" onclick="Reservation_compact()" src="images/compact.jpg" alt="type1">
+		
+			<img class="image" onclick="Reservation_berline()" src="images/berline.jpg" alt="type1">
+		
+			<img class="image" onclick="Reservation_utilitaire()" src="images/utilitaire.jpg" alt="type1">
+		
+			<img class="image " onclick="Reservation_engin_de_chantier()" src="images/engin de chantier.jpg" alt="type1">
+		
+			<img class="image " onclick="Reservation_camion()" src="images/camion.jpg" alt="type1">
+		
+		</div>
+       
+
+        <div class="flex">
+        <h3 class="reserv">Reserve</h3>
+		<form class="forme1" action="/action_page.php">
+  <div class="input" >
+  <input type="radio" id="Electrique" name="carburant" value="Electrique">
+  <label for="male" id="elec">Electrique</label>
+  <input type="radio" id="Hybride" name="carburantr" value="Hybride">
+  <label for="female" id="hybr">Hybride</label>
+  <input type="radio" id="Essence" name="carburant" value="Essence">
+  <label for="other" id="essence">Essence</label>
+  <input type="radio" id="Diesel" name="carburant" value="Diesel">
+  <label for="other" id="diesel">Diesel</label>
+  </div>
+  
+</form>
+
+
+   
+   <div class="input2" id="auto_manu" >
+  <form class="forme2"  action="/action_page.php">
+
+  <input type="radio" id="Manuelle" name="boite_vitesse" value="Manuelle">
+  <label for="age1" id="manuelle">Manuelle</label>
+  <input type="radio" id="Automatique" name="boite_vitesse" value="19">
+  <label for="age2" id="auto">Automatique</label><br />
+
+</form>
+</div>
+<input class="jour" type="number" name="" min="1" value="number" id="dr">
+   <label for="age2">Number of Day</label>
+   <label>total price :</label>
+   <label id="prix"></label>
+
+  <input class="btn" type="submit" value="Reservation Now" onclick="calcul()">
+
+</div>
+</div>
+
+
+
+<footer class="footer">
+		
+		<img class="logo1" src="icon/logo1.png" alt="logo" >
+		<h3>DOWNLOAD THE APP :</h3>
+		<div class="app">
+		<a href="#"><img src="icon/Composant 17 – 1.svg" alt:"apple" width="150px" height="150px"></a>
+		<a href="#"><img src="icon/Composant 18 – 1.svg" alt:"apple" width="150px" height="150px"></a>
+	</div>
+	<div class="t-list">
+	
+	<div class="list">
+		<ul>
+			<li>Car Rental SERVICES</u></li>
+			<li class="pading">Vehicle rental</li>
+			<li>Utility rental</li>
+			<li>Our agencies</li>
+		
+		</ul>
+
+	</div>
+	<div class="list">
+		<ul>
+			<li >RÉSERVATION MOBILE</li>
+			<li class="pading">iPhone & iPad</li>
+			<li>Android</li>
+		</ul>
+	</div>
+	<div class="list">
+		<ul>
+			<li >SERVICES DE LOCATION</li>
+			<li class="pading">Informations générales</li>
+		</ul>
+	</div>
+	<div class="list">
+		<ul class="left">
+			<li > Cartes Car Rental</u></li>
+			<li class="pading">Carte Express CR</li>
+			<li>Carte Gold CR</li>
+		</ul>
+	</div>
+	<div class="list">
+		<ul class="left2">
+			<li >Contact </li>
+			<li class="pading">Phone:06-13-00-78-43</li>
+			<li class="pading">Email:CRental.98@gmail.com</li>
+		</ul>
+	</div>
+	<div class="list">
+		<ul class="left1">
+			<li>Follow </li>
+			<div class="follow">
+			<li class="pading"><img  src="icon/facebook.svg" alt="icon1" width="30px"></li>
+			<li class="p1"><img  src="icon/linkedin.svg" alt="icon3" width="30px"></li>
+		    <li class="p1"><img  src="icon/twitter.svg" alt="icon4" width="30px"></li>
+		    <li class="p1"><img src="icon/instagram.svg" alt="icon2" width="30px"></li>
+		</div>
+		</ul>
+	</div>
+	</div>
+	</footer>
+
+	
+
+
+
+
+
+</body>
+</html>

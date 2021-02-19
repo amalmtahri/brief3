@@ -1,0 +1,8 @@
+<svg id="Composant_18_1" data-name="Composant 18 – 1" xmlns="http://www.w3.org/2000/svg" width="532" height="205" viewBox="0 0 532 205">
+  <path id="play-store" d="M100.926,45.149l-77-44.013A8.629,8.629,0,0,0,19.646,0c-.03,0-.06,0-.089,0-.2,0-.4.012-.594.028-.089.007-.178.017-.267.027q-.232.026-.462.064c-.056.01-.112.013-.167.023l0,0A8.631,8.631,0,0,0,11,8.644V96.669a8.633,8.633,0,0,0,7.07,8.5l0,0c.05.01.1.013.15.021q.247.042.5.069c.083.009.166.018.249.025.2.016.39.025.585.027.033,0,.066,0,.1,0a8.629,8.629,0,0,0,4.283-1.136l77-44.013a8.642,8.642,0,0,0,4.353-7.5v-.008A8.643,8.643,0,0,0,100.926,45.149Zm-30.449-8.74L62.821,46.452,43.343,20.9ZM97.193,53.633,43.343,84.414,77.06,40.18,97.192,51.688a1.119,1.119,0,0,1,0,1.945Z" transform="translate(44.002 49.844)" fill="#fff"/>
+  <g id="Rectangle_15" data-name="Rectangle 15" fill="none" stroke="#f11e1e" stroke-width="6">
+    <rect width="532" height="205" rx="94" stroke="none"/>
+    <rect x="3" y="3" width="526" height="199" rx="91" fill="none"/>
+  </g>
+  <text id="Google_play" data-name="Google play" transform="translate(180 128)" fill="#fff" font-size="61" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Google play</tspan></text>
+</svg>
